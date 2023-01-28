@@ -21,6 +21,11 @@ def start(update, context):
     update.message.reply_text('Hi! I am an AI assistant powered by OpenAI. You can ask me anything and I will do my best to help you.')
 
 
+def savedata(name, text, response):
+    f = open("{}.txt".format(datetime.now().strftime("%Y%m%d")), "a")
+    f.write(f"{name}; {text}; {response}")
+    f.close()
+
 # Define a function to be called when a message is received
 def message(update, context):
     # Get the message text and user's name
@@ -35,8 +40,12 @@ def message(update, context):
         temperature=0.7,
     ).choices[0].text
 
+    savedata(name, text, response)
     # Send the response to the user
     update.message.reply_text(response)
+
+
+
 
 
 def main():

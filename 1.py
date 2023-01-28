@@ -2,6 +2,7 @@ import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import openai
 import configparser
+import time
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -22,7 +23,7 @@ def start(update, context):
 
 
 def savedata(name, text, response):
-    f = open("{}.txt".format(datetime.now().strftime("%Y%m%d")), "a")
+    f = open("{}.txt".format(time.strftime("%Y%m%d")), "a")
     f.write(f"{name}; {text}; {response}")
     f.close()
 

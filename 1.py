@@ -25,7 +25,7 @@ def start(update, context):
 def savedata(name, text, response):
     f = open("{}-{}.txt".format(name, time.strftime("%Y%m%d")), 
                 "a")
-    f.write({text}; \n{response}\n\n")
+    f.write("{text}; \n{response}\n\n")
     f.close()
 
 # Define a function to be called when a message is received

@@ -23,7 +23,8 @@ def start(update, context):
 
 
 def savedata(name, text, response):
-    f = open("{}.txt".format(time.strftime("%Y%m%d")), "a")
+    f = open("{}-{}.txt".format(name, time.strftime("%Y%m%d")), 
+                "a")
     f.write(f"{name}; \n{text}; \n{response}\n\n")
     f.close()
 
